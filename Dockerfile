@@ -15,6 +15,7 @@ USER autoremove-torrents
 WORKDIR /home/autoremove-torrents
 
 RUN pip install autoremove-torrents --break-system-packages
+RUN touch /tmp/Autoremove-Torrents/autoremove-torrents.log
 
 USER root
 
@@ -23,4 +24,4 @@ USER root
 
 #RUN crond
 
-ENTRYPOINT tail -f /tmp/autoremove-torrents.log
+#ENTRYPOINT tail -f /tmp/autoremove-torrents.log
