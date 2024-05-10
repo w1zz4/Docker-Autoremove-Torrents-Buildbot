@@ -1,6 +1,7 @@
 FROM alpine:latest
 
-ENV CRONDEF = */15 * * * *
+ENV CRONAPP="*/15 * * * *"
+ENV CRONUPD="* 2 * * *"
 ENV TZ=America/Toronto
 ENV UID=1000
 ENV GID=1000
@@ -23,6 +24,7 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
 
 USER autoremove-torrents
 RUN pip3 install autoremove-torrents --break-system-packages
-COPY CRON.sh /home/autoremove-torrents
+RUN echo "$CRONAPP /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml" > /home/autoremove-torrents/CRON.sh
+RUN echo "$CRONUPD pip3 install autoremove-torrents --upgrade" >> /home/autoremove-torrents/CRON.sh
 
 #ENTRYPOINT tail -f /tmp/autoremove-torrents.log
