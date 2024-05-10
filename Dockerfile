@@ -27,4 +27,4 @@ RUN pip3 install autoremove-torrents --break-system-packages
 RUN echo "$CRONAPP /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml" > /home/autoremove-torrents/CRON
 RUN echo "$CRONUPD pip3 install autoremove-torrents --upgrade" >> /home/autoremove-torrents/CRON
 
-ENTRYPOINT supercronic /home/autoremove-torrents/CRON
+ENTRYPOINT supercronic /home/autoremove-torrents/CRON > /home/w1zz4/Autoremove-Torrents/autoremove-torrents.log
