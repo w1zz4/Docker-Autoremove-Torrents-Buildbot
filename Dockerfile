@@ -24,4 +24,4 @@ USER root
 
 #RUN crond
 
-#ENTRYPOINT tail -f /tmp/autoremove-torrents.log
+#ENTRYPOINT tail -f /tmp/Autoremove-Torrents/autoremove-torrents.log
