@@ -18,9 +18,9 @@ RUN pip install autoremove-torrents --break-system-packages
 
 USER root
 
-(crontab -u autoremove-torrents -l ; echo "$CRONDEF /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml > /tmp/Autoremove-Torrents/autoremove-torrents.log 2>&1") | crontab -u autoremove-torrents -;
-(crontab -u autoremove-torrents -l ; echo "* 4 * * * pip install autoremove-torrents --upgrade") | crontab -u autoremove-torrents -;
+#(crontab -u autoremove-torrents -l ; echo "$CRONDEF /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml > /tmp/Autoremove-Torrents/autoremove-torrents.log 2>&1") | crontab -u autoremove-torrents -;
+#(crontab -u autoremove-torrents -l ; echo "* 4 * * * pip install autoremove-torrents --upgrade") | crontab -u autoremove-torrents -;
 
-RUN crond
+#RUN crond
 
 ENTRYPOINT tail -f /tmp/autoremove-torrents.log
