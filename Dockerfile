@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV CRONDEF=*/15 * * * *
+ENV CRONDEF="*/15 * * * *"
 ENV TZ=America/Toronto
 ENV UID=1000
 ENV GID=1000
