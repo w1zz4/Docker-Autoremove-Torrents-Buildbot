@@ -15,6 +15,7 @@ USER autoremove-torrents
 WORKDIR /home/autoremove-torrents
 
 RUN pip install autoremove-torrents --break-system-packages
+RUN mkdir -p /tmp/Autoremove-Torrents
 RUN /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml > /tmp/Autoremove-Torrents/autoremove-torrents.log 2>&1
 
 USER root
