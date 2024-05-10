@@ -11,13 +11,14 @@ RUN apk add py3-pip git;
 RUN addgroup -g $GID autoremove-torrents
 RUN adduser -D -u $UID -G autoremove-torrents autoremove-torrents
 
+#WORKDIR /root
 #RUN git clone https://github.com/jerrymakesjelly/autoremove-torrents.git
 #WORKDIR /root/autoremove-torrents
 #RUN python3 setup.py install
 
 #USER autoremove-torrents
-#WORKDIR /home/autoremove-torrents
 
+#RUN /usr/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml
 #USER root
 
 #(crontab -u autoremove-torrents -l ; echo "$CRONDEF /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml > /tmp/Autoremove-Torrents/autoremove-torrents.log 2>&1") | crontab -u autoremove-torrents -;
