@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-ENV CRONDEF = */15 * * * *
+ENV CRONDEF=*/15 * * * *
 ENV TZ=America/Toronto
 ENV UID=1000
 ENV GID=1000
@@ -20,9 +20,9 @@ RUN /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autorem
 
 USER root
 
-#(crontab -u autoremove-torrents -l ; echo "$CRONDEF /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml > /tmp/Autoremove-Torrents/autoremove-torrents.log 2>&1") | crontab -u autoremove-torrents -;
-#(crontab -u autoremove-torrents -l ; echo "* 4 * * * pip install autoremove-torrents --upgrade") | crontab -u autoremove-torrents -;
+(crontab -u autoremove-torrents -l ; echo "$CRONDEF /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml > /tmp/Autoremove-Torrents/autoremove-torrents.log 2>&1") | crontab -u autoremove-torrents -;
+(crontab -u autoremove-torrents -l ; echo "* 4 * * * pip install autoremove-torrents --upgrade") | crontab -u autoremove-torrents -;
 
-#RUN crond
+RUN crond
 
-#ENTRYPOINT tail -f /tmp/Autoremove-Torrents/autoremove-torrents.log
+ENTRYPOINT tail -f /tmp/Autoremove-Torrents/autoremove-torrents.log
