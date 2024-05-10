@@ -24,7 +24,7 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
 
 USER autoremove-torrents
 RUN pip3 install autoremove-torrents --break-system-packages
-RUN echo "$CRONAPP /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml" > /home/autoremove-torrents/CRON.sh
-RUN echo "$CRONUPD pip3 install autoremove-torrents --upgrade" >> /home/autoremove-torrents/CRON.sh
+RUN echo "$CRONAPP /home/autoremove-torrents/.local/bin/autoremove-torrents --conf=/tmp/Autoremove-Torrents/Autoremove-Torrents.yml" > /home/autoremove-torrents/CRON
+RUN echo "$CRONUPD pip3 install autoremove-torrents --upgrade" >> /home/autoremove-torrents/CRON
 
-#ENTRYPOINT tail -f /tmp/autoremove-torrents.log
+ENTRYPOINT supercronic /home/autoremove-torrents/CRON
