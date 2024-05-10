@@ -22,8 +22,7 @@ RUN curl -fsSLO "$SUPERCRONIC_URL" \
  && ln -s "/usr/local/bin/${SUPERCRONIC}" /usr/local/bin/supercronic
 
 USER autoremove-torrents
-WORKDIR /home/autoremove-torrents
-
 RUN pip3 install autoremove-torrents --break-system-packages
+COPY CRON.sh /home/autoremove-torrents
 
 #ENTRYPOINT tail -f /tmp/autoremove-torrents.log
