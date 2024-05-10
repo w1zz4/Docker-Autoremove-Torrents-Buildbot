@@ -1,7 +1,7 @@
 FROM alpine:latest
 
 ENV CRONAPP="*/15 * * * *"
-ENV CRONUPD="* 2 * * *"
+ENV CRONUPD="5 2 * * *"
 ENV TZ=America/Toronto
 ENV UID=1000
 ENV GID=1000
