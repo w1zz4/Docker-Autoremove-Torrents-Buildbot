@@ -18,4 +18,4 @@ RUN echo "$CRONAPP /home/autoremove-torrents/.local/bin/autoremove-torrents --co
 RUN echo "$CRONUPD pip3 install autoremove-torrents --upgrade" >> /home/autoremove-torrents/CRON
 
 #ENTRYPOINT /usr/local/bin/supercronic /home/autoremove-torrents/CRON
-#ENTRYPOINT sh
+ENTRYPOINT sh
